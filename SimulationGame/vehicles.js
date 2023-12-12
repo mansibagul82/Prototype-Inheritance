@@ -25,15 +25,6 @@ Vehicle.prototype.refuel = function(){
 
 }
 
-// Vehicle.prototype.brake = function(speed){
-//     this.speed -= speed;
-
-// }
-
-// Vehicle.prototype.refuel = function(){
-//     console.log("The vehicle is refueling")
-// }
-
 function Car(brand,model,speed,fuelType,numberOfWheels){
     Vehicle.call(this,brand,model,speed,fuelType,numberOfWheels)
     
