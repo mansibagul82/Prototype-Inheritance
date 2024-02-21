@@ -31,7 +31,7 @@ function Car(brand,model,speed,fuelType,numberOfWheels){
     this.numberOfWheels = numberOfWheels || 4
 }
 
-Car.prototype.honksound = function(){
+Car.honksound = function(){
     console.log("honksound")
 } 
 
