@@ -64,5 +64,5 @@ console.log(car)
 
 console.log(plan)
 
-car.honksound()
+
 
