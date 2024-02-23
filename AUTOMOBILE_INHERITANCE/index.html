@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+   
+    // Define a prototype object for Automobile
+    const AutomobilePrototype = {
+    startEngine() {
+        return `${this.make} ${this.model} engine started.`;
+    },
+    stopEngine() {
+        return `${this.make} ${this.model} engine stopped.`;
+    }
+    };
+
+    // Function to create FourWheeler objects
+    function createFourWheeler(make, model, year, color) {
+    const fourWheeler = Object.create(AutomobilePrototype);
+    fourWheeler.make = make;
+    fourWheeler.model = model;
+    fourWheeler.year = year;
+    fourWheeler.color = color;
+    return fourWheeler;
+    }
+
+    // Creating a FourWheeler instance
+    const myCar = createFourWheeler('Toyota', 'Camry', 2022, 'Black');
+    console.log(myCar.startEngine());
+    console.log(myCar.stopEngine());
+
+
+    // Using constructor functions()
+
+    // Define Automobile constructor function
+    function Automobile(make, model, year, color) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.color = color;
+    }
+
+    // Adding methods to the prototype of Automobile
+    Automobile.prototype.startEngine = function() {
+    return `${this.make} ${this.model} engine started.`;
+    };
+
+    Automobile.prototype.stopEngine = function() {
+    return `${this.make} ${this.model} engine stopped.`;
+    };
+
+    // Define FourWheeler constructor function which inherits from Automobile
+    function FourWheeler(make, model, year, color) {
+    Automobile.call(this, make, model, year, color);
+    }
+
+    FourWheeler.prototype = Object.create(Automobile.prototype);
+    FourWheeler.prototype.constructor = FourWheeler;
+
+    // Creating a FourWheeler instance
+    const myNewCar = new FourWheeler('Honda', 'Accord', 2023, 'Red');
+    console.log(myNewCar.startEngine());
+    console.log(myNewCar.stopEngine());
+    
+
+</script>
